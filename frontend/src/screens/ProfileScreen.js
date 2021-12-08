@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, Redirect } from "react-router-dom";
+//import { Link, Redirect } from "react-router-dom";
 import { Form, Button, Row, Col, Table } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import Message from "../components/Message";
@@ -29,7 +29,7 @@ const ProfileScreen = ({ location, history }) => {
   const orderListMy = useSelector((state) => state.orderListMy);
   const { loading: loadingOrders, orders, error: errorOrders } = orderListMy;
 
-  const redirect = location.search ? location.search.split("=")[1] : "/";
+  //const redirect = location.search ? location.search.split("=")[1] : "/";
 
   useEffect(() => {
     if (!userInfo) {
@@ -117,6 +117,8 @@ const ProfileScreen = ({ location, history }) => {
           <Loader />
         ) : errorOrders ? (
           <Message variant="danger">{errorOrders}</Message>
+        ) : orders.length === 0 ? (
+          <Message variant="danger">You haven't ordered anything yet!</Message>
         ) : (
           <Table striped bordered hover responsive classname="table-sm">
             <thead>
