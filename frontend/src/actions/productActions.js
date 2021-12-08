@@ -8,16 +8,17 @@ import {
   PRODUCT_DETAILS_FAIL,
 } from "../constants/productConstants";
 
-export const listProducts = () => async (dispatch) => {
+export const listProducts = () => async (dispatch, getState) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
-
+    //console.log("Before dispatch : ", getState())
     const { data } = await axios.get("/api/products");
 
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
     });
+    //console.log("After dispatch : ", getState())
   } catch (error) {
     dispatch({
       type: PRODUCT_LIST_FAIL,
