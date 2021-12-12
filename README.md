@@ -14,7 +14,7 @@ The basic idea is to provide the user with a service that he/she can see the var
 1. Clone the repository
 
 ```bash
-git clone https://github.com/rahuldkjain/github-profile-readme-generator.git
+git clone https://github.com/rushikesh-tk/ProshopApp.git
 ```
 
 2. Change the working directory
